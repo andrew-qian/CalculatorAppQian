@@ -27,4 +27,15 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
+    
+    <style name="SquareButtons" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/custom_button_square</item>
+        <item name="android:layout_width">@dimen/side_len</item>
+        <item name="android:layout_height">@dimen/side_len</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_marginTop">@dimen/padding</item>
+        <item name="android:layout_marginStart">@dimen/padding</item>
+
+    </style>
+
 </resources>
