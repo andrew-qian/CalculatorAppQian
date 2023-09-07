@@ -9,8 +9,8 @@
     <Button
         android:id="@+id/buttonAC"
         style="@style/SquareButtons"
-        android:layout_marginTop="275dp" MAKE THESE IN DIMENS FILE TO EASILY CHANGE
-        android:layout_marginEnd="296dp"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginEnd="@dimen/side_margin"
         android:text="AC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,7 +18,7 @@
     <Button
         android:id="@+id/buttonExponent"
         style="@style/SquareButtons"
-        android:layout_marginTop="275dp"
+        android:layout_marginTop="@dimen/top_margin"
         android:text="^"
         app:layout_constraintStart_toEndOf="@+id/buttonAC"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/buttonPlusMinus"
         style="@style/SquareButtons"
-        android:layout_marginTop="275dp"
+        android:layout_marginTop="@dimen/top_margin"
         android:text="+/-"
         app:layout_constraintStart_toEndOf="@+id/buttonExponent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/buttonDivide"
         style="@style/SquareButtons"
-        android:layout_marginTop="275dp"
+        android:layout_marginTop="@dimen/top_margin"
         android:text="/"
         app:layout_constraintStart_toEndOf="@+id/buttonPlusMinus"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
     <Button
         android:id="@+id/buttonSeven"
         style="@style/SquareButtons"
-        android:layout_marginEnd="296dp"
+        android:layout_marginEnd="@dimen/side_margin"
         android:text="7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonAC" />
@@ -72,7 +72,7 @@
     <Button
         android:id="@+id/buttonFour"
         style="@style/SquareButtons"
-        android:layout_marginEnd="296dp"
+        android:layout_marginEnd="@dimen/side_margin"
         android:text="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSeven" />
@@ -102,7 +102,7 @@
     <Button
         android:id="@+id/buttonOne"
         style="@style/SquareButtons"
-        android:layout_marginEnd="296dp"
+        android:layout_marginEnd="@dimen/side_margin"
         android:text="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFour" />
@@ -131,10 +131,44 @@
     <Button
         android:id="@+id/buttonZero"
         style="@style/SquareButtons"
-        android:layout_marginEnd="296dp"
+        android:layout_width="@dimen/big_button_side_len"
+        android:layout_marginEnd="@dimen/big_button_side_margin"
         android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonOne" />
+
+    <Button
+        android:id="@+id/buttonEquals"
+        style="@style/SquareButtons"
+        android:layout_width="@dimen/big_button_side_len"
+        android:text="="
+        app:layout_constraintStart_toEndOf="@+id/buttonZero"
+        app:layout_constraintTop_toBottomOf="@+id/buttonThree" />
+
+    <TextView
+        android:id="@+id/outputBox"
+        android:layout_width="329dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="bottom|right"
+        android:text="0"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/beforeBox"
+        android:layout_width="329dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="bottom|right"
+        android:text="0"
+        android:textColor="@color/md_theme_dark_onSurfaceVariant"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

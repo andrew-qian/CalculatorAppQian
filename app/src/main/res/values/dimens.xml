@@ -2,6 +2,10 @@
 <resources>
     <dimen name="padding">10dp</dimen>
     <dimen name="side_len">75dp</dimen>
+    <dimen name="big_button_side_len">160dp</dimen>
     <dimen name="text_size">20sp</dimen>
+    <dimen name="top_margin">275dp</dimen>
+    <dimen name="side_margin">285dp</dimen>
+    <dimen name="big_button_side_margin">200dp</dimen>
 
 </resources>
