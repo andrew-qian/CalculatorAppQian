@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double oldVal = 0;
     double evenOlderVal = 0;
 
-    String evenOlderValAddition = "";
 
     boolean lastPressPlus = false;
     boolean lastPressMinus = false;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean lastPressExponent = false;
 
     @Override
-    public void onClick (View v){
+    public void onClick (View v){ //Cite: (remove need for multiple onCLickListener methods) https://androidacademic.blogspot.com/2016/12/multiple-buttons-onclicklistener-android.html
         TextView outputBox = findViewById(R.id.outputBox);
         TextView beforeBox = findViewById(R.id.beforeBox);
         int id = v.getId();
@@ -63,7 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if(id == R.id.buttonAC) {
             oldVal = 0;
             evenOlderVal = 0;
-            evenOlderValAddition = "";
+            lastPressPlus = false;
+            lastPressMinus = false;
+            lastPressDivide = false;
+            lastPressMultiply = false;
+            lastPressExponent = false;
         }
         else if(id == R.id.buttonPlus) {
             evenOlderVal = oldVal;
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressDivide = false;
             lastPressMultiply = false;
             lastPressExponent = false;
-            evenOlderValAddition = "+";
+
         }
         else if(id == R.id.buttonMinus) {
             evenOlderVal = oldVal;
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressDivide = false;
             lastPressMultiply = false;
             lastPressExponent = false;
-            evenOlderValAddition = "-";
+
         }
         else if(id == R.id.buttonDivide) {
             evenOlderVal = oldVal;
@@ -93,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressDivide = true;
             lastPressMultiply = false;
             lastPressExponent = false;
-            evenOlderValAddition = "/";
+
 
         }
         else if(id == R.id.buttonMultiply) {
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressDivide = false;
             lastPressMultiply = true;
             lastPressExponent = false;
-            evenOlderValAddition = "*";
+
         }
         else if(id == R.id.buttonExponent) {
             evenOlderVal = oldVal;
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressDivide = false;
             lastPressMultiply = false;
             lastPressExponent = true;
-            evenOlderValAddition = "^";
+
         }
         else if(id == R.id.buttonEquals){
             if (lastPressPlus){
@@ -132,6 +135,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if(lastPressExponent){
                 oldVal = Math.pow(evenOlderVal, oldVal);
             }
+            else{
+
+            }
 
         }
         if (oldVal % 1 == 0 && oldVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
@@ -142,10 +148,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (evenOlderVal % 1 == 0 && evenOlderVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
-            beforeBox.setText("" + (int) evenOlderVal + evenOlderValAddition);
+            beforeBox.setText("" + (int) evenOlderVal);
         }
         else{
-            beforeBox.setText("" + evenOlderVal + evenOlderValAddition);
+            beforeBox.setText("" + evenOlderVal);
         }
 
 
@@ -191,7 +197,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         exponent.setOnClickListener(this);
         Button equals = findViewById(R.id.buttonEquals);
         equals.setOnClickListener(this);
-
     }
 
 
