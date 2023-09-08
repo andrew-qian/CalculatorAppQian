@@ -7,12 +7,13 @@
         android:width="1dp"/>
     <corners
         android:radius="5dp"/>
+
 </shape>
 
 
-<!--
-    Cite (Custom Button):
-    https://www.geeksforgeeks.org/how-to-create-customized-buttons-in-android-with-different-shapes-and-colors/
-    Ripple Effect:
-    https://stackoverflow.com/questions/40008609/add-ripple-effect-to-my-button-with-button-background-color
--->
+
+    <!--
+        Cite (Custom Button):
+        https://www.geeksforgeeks.org/how-to-create-customized-buttons-in-android-with-different-shapes-and-colors/
+
+    -->

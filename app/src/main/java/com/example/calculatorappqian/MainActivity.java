@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double oldVal = 0;
     double evenOlderVal = 0;
 
-
     boolean lastPressPlus = false;
     boolean lastPressMinus = false;
     boolean lastPressDivide = false;
@@ -134,9 +133,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             else if(lastPressExponent){
                 oldVal = Math.pow(evenOlderVal, oldVal);
-            }
-            else{
-
             }
 
         }
