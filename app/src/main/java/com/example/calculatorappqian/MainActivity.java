@@ -11,8 +11,8 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    double displayVal = 0;
     double oldVal = 0;
-    double evenOlderVal = 0;
 
     boolean lastPressPlus = false;
     boolean lastPressMinus = false;
@@ -26,41 +26,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView beforeBox = findViewById(R.id.beforeBox);
         int id = v.getId();
         if (id == R.id.buttonOne){
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 1;} else{oldVal = (oldVal * 10) - 1;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 1;} else{displayVal = (displayVal * 10) - 1;}
         }
         else if(id == R.id.buttonTwo) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 2;} else{oldVal = (oldVal * 10) - 2;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 2;} else{displayVal = (displayVal * 10) - 2;}
         }
         else if(id == R.id.buttonThree) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 3;} else{oldVal = (oldVal * 10) - 3;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 3;} else{displayVal = (displayVal * 10) - 3;}
         }
         else if(id == R.id.buttonFour) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 4;} else{oldVal = (oldVal * 10) - 4;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 4;} else{displayVal = (displayVal * 10) - 4;}
         }
         else if(id == R.id.buttonFive) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 5;} else{oldVal = (oldVal * 10) - 5;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 5;} else{displayVal = (displayVal * 10) - 5;}
         }
         else if(id == R.id.buttonSix) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 6;} else{oldVal = (oldVal * 10) - 6;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 6;} else{displayVal = (displayVal * 10) - 6;}
         }
         else if(id == R.id.buttonSeven) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 7;} else{oldVal = (oldVal * 10) - 7;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 7;} else{displayVal = (displayVal * 10) - 7;}
         }
         else if(id == R.id.buttonEight) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 8;} else{oldVal = (oldVal * 10) - 8;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 8;} else{displayVal = (displayVal * 10) - 8;}
         }
         else if(id == R.id.buttonNine) {
-            if (oldVal >= 0){oldVal = (oldVal * 10) + 9;} else{oldVal = (oldVal * 10) - 9;}
+            if (displayVal >= 0){displayVal = (displayVal * 10) + 9;} else{displayVal = (displayVal * 10) - 9;}
         }
         else if(id == R.id.buttonZero) {
-            oldVal = (oldVal * 10);
+            displayVal = (displayVal * 10);
         }
         else if(id == R.id.buttonPlusMinus) {
-            oldVal = -oldVal;
+            displayVal = -displayVal;
         }
         else if(id == R.id.buttonAC) {
+            displayVal = 0;
             oldVal = 0;
-            evenOlderVal = 0;
             lastPressPlus = false;
             lastPressMinus = false;
             lastPressDivide = false;
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lastPressExponent = false;
         }
         else if(id == R.id.buttonPlus) {
-            evenOlderVal = oldVal;
-            oldVal = 0;
+            oldVal = displayVal;
+            displayVal = 0;
             lastPressPlus = true;
             lastPressMinus = false;
             lastPressDivide = false;
@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.buttonMinus) {
-            evenOlderVal = oldVal;
-            oldVal = 0;
+            oldVal = displayVal;
+            displayVal = 0;
             lastPressPlus = false;
             lastPressMinus = true;
             lastPressDivide = false;
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.buttonDivide) {
-            evenOlderVal = oldVal;
-            oldVal = 0;
+            oldVal = displayVal;
+            displayVal = 0;
             lastPressPlus = false;
             lastPressMinus = false;
             lastPressDivide = true;
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.buttonMultiply) {
-            evenOlderVal = oldVal;
-            oldVal = 0;
+            oldVal = displayVal;
+            displayVal = 0;
             lastPressPlus = false;
             lastPressMinus = false;
             lastPressDivide = false;
@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.buttonExponent) {
-            evenOlderVal = oldVal;
-            oldVal = 0;
+            oldVal = displayVal;
+            displayVal = 0;
             lastPressPlus = false;
             lastPressMinus = false;
             lastPressDivide = false;
@@ -120,34 +120,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(id == R.id.buttonEquals){
             if (lastPressPlus){
-                oldVal = evenOlderVal + oldVal;
+                displayVal = oldVal + displayVal;
             }
             else if (lastPressMinus){
-                oldVal = evenOlderVal - oldVal;
+                displayVal = oldVal - displayVal;
             }
             else if(lastPressMultiply){
-                oldVal = evenOlderVal * oldVal;
+                displayVal = oldVal * displayVal;
             }
             else if(lastPressDivide){
-                oldVal = evenOlderVal/oldVal;
+                displayVal = oldVal/displayVal;
             }
             else if(lastPressExponent){
-                oldVal = Math.pow(evenOlderVal, oldVal);
+                displayVal = Math.pow(oldVal, displayVal);
             }
 
         }
-        if (oldVal % 1 == 0 && oldVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
-            outputBox.setText("" + (int) oldVal);
+        if (displayVal % 1 == 0 && displayVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
+            outputBox.setText("" + (int) displayVal);
         }
         else{
-            outputBox.setText("" + oldVal);
+            outputBox.setText("" + displayVal);
         }
 
-        if (evenOlderVal % 1 == 0 && evenOlderVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
-            beforeBox.setText("" + (int) evenOlderVal);
+        if (oldVal % 1 == 0 && oldVal < Integer.MAX_VALUE){ //pretty print for if ending in .0 and scientific notation when number gets big
+            beforeBox.setText("" + (int) oldVal);
         }
         else{
-            beforeBox.setText("" + evenOlderVal);
+            beforeBox.setText("" + oldVal);
         }
 
 
